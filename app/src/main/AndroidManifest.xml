@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Match_picture"
         tools:targetApi="31">
         <activity
+            android:name=".puzzel_play_activity"
+            android:exported="false" />
+        <activity
             android:name=".no_time_limit_activity"
             android:exported="false" />
         <activity

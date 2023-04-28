@@ -23,14 +23,24 @@ public class level_adapter extends RecyclerView.Adapter<level_adapter.view_holde
     @Override
     public view_holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.item_for_recycler,parent,false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         view_holder holder= new view_holder(view);
+
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull view_holder holder, int position) {
         holder.textView.setText(levels.get(position));
+
+
     }
+
 
     @Override
     public int getItemCount() {
