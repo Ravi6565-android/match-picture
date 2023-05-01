@@ -1,6 +1,7 @@
 package com.example.match_picture;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ public class level_adapter extends RecyclerView.Adapter<level_adapter.view_holde
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(context,puzzel_play_activity.class);
+                context.startActivity(intent);
 
             }
         });

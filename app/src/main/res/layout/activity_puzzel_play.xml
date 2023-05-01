@@ -4,10 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".puzzel_play_activity">
+    tools:context=".puzzel_play_activity"
+    android:orientation="vertical">
 
     <ProgressBar
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_20sdp"/>
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        />
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/_30sdp"
+        android:id="@+id/gridview"
+        android:numColumns="3"
+        />
 
 </LinearLayout>
