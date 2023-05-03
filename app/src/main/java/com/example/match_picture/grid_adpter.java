@@ -16,8 +16,9 @@ import java.util.List;
 public class grid_adpter extends BaseAdapter {
 
     Context context;
-    ArrayList<String> imgArr;
-    public grid_adpter(Context context, ArrayList<String> imgArr)
+
+    List<String> imgArr;
+    public grid_adpter(Context context, List<String> imgArr)
     {
         this.context=context;
         this.imgArr=imgArr;
@@ -30,7 +31,7 @@ public class grid_adpter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return position;
+        return null;
     }
 
     @Override
@@ -43,6 +44,13 @@ public class grid_adpter extends BaseAdapter {
         convertView= LayoutInflater.from(context).inflate(R.layout.item_for_grid,parent,false);
         ImageView imageView;
         imageView=convertView.findViewById(R.id.image_item);
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
 
         InputStream inputstream=null;
         try

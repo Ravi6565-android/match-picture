@@ -30,6 +30,7 @@ TextView no_time_limit,normal,hard;
     public void onClick(View v) {
         if(v.getId()==no_time_limit.getId()){
             Intent intent=new Intent(MainActivity.this,no_time_limit_activity.class);
+            intent.putExtra("dificulty",no_time_limit.getText().toString());
             startActivity(intent);
         }
     }

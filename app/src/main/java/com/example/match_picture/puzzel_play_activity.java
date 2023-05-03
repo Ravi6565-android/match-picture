@@ -8,15 +8,18 @@ import android.widget.GridView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Handler;
 
 public class puzzel_play_activity extends AppCompatActivity {
 
     GridView gridView;
 
-ArrayList<String> imgArr= new ArrayList<>();
+
+
+List<String> imglist = new ArrayList<>();
+    ArrayList<String> imagearraylist = new ArrayList<>();
 
 
     @Override
@@ -25,21 +28,25 @@ ArrayList<String> imgArr= new ArrayList<>();
         setContentView(R.layout.activity_puzzel_play);
         gridView=findViewById(R.id.gridview);
 
+
+
         String imagess[];
         try {
             imagess= getAssets().list("");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        imgArr=new ArrayList<>(Arrays.asList(imagess));
+        imagearraylist =new ArrayList<String>(Arrays.asList(imagess));
 
-        imgArr.subList(0,6);
-        imgArr.addAll(imgArr);
-        Collections.shuffle(imgArr);
 
-        grid_adpter grid_adpter = new grid_adpter(puzzel_play_activity.this,imgArr);
+        imglist = imagearraylist.subList(0,6);
+        imglist.addAll(imglist);
+        Collections.shuffle(imglist);
 
+        grid_adpter grid_adpter = new grid_adpter(puzzel_play_activity.this, imglist);
+        gridView.setNumColumns(3);
         gridView.setAdapter(grid_adpter);
+
 
     }
 
