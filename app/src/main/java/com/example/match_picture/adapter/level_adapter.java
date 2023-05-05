@@ -1,4 +1,4 @@
-package com.example.match_picture;
+package com.example.match_picture.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.match_picture.R;
+import com.example.match_picture.puzzel_play_activity;
 
 import java.util.ArrayList;
 public class level_adapter extends RecyclerView.Adapter<level_adapter.view_holder> {
@@ -27,7 +30,7 @@ public class level_adapter extends RecyclerView.Adapter<level_adapter.view_holde
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,puzzel_play_activity.class);
+                Intent intent = new Intent(context, puzzel_play_activity.class);
                 context.startActivity(intent);
 
             }

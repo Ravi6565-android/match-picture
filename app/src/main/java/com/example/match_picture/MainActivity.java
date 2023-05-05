@@ -24,6 +24,8 @@ TextView no_time_limit,normal,hard;
         hard= findViewById(R.id.HARD);
 
         no_time_limit.setOnClickListener(this);
+        normal.setOnClickListener(this);
+        hard.setOnClickListener(this);
     }
 
     @Override
@@ -31,6 +33,14 @@ TextView no_time_limit,normal,hard;
         if(v.getId()==no_time_limit.getId()){
             Intent intent=new Intent(MainActivity.this,no_time_limit_activity.class);
             intent.putExtra("dificulty",no_time_limit.getText().toString());
+            startActivity(intent);
+        } if(v.getId()==normal.getId()){
+            Intent intent=new Intent(MainActivity.this,no_time_limit_activity.class);
+            intent.putExtra("dificulty",normal.getText().toString());
+            startActivity(intent);
+        } if(v.getId()==hard.getId()){
+            Intent intent=new Intent(MainActivity.this,no_time_limit_activity.class);
+            intent.putExtra("dificulty",hard.getText().toString());
             startActivity(intent);
         }
     }

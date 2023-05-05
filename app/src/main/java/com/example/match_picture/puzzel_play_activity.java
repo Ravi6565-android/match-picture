@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
 
+import com.example.match_picture.adapter.grid_adpter;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Handler;
 
 public class puzzel_play_activity extends AppCompatActivity {
 

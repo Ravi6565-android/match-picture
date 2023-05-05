@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.Toolbar;
+
+import com.example.match_picture.adapter.level_adapter;
 
 import java.util.ArrayList;
 
@@ -22,14 +21,19 @@ ArrayList<String> levels= new ArrayList<>();
         setContentView(R.layout.activity_no_time_limit);
         fill_level();
 
-        String s=getIntent().getStringExtra("dificulty");
 
         recyclerView=findViewById(R.id.recycler);
-        level_adapter level_adapter= new level_adapter(no_time_limit_activity.this,levels);
-        LinearLayoutManager manager= new LinearLayoutManager(no_time_limit_activity.this);
-        manager.setOrientation(RecyclerView.VERTICAL);
-        recyclerView.setLayoutManager(manager);
-        recyclerView.setAdapter(level_adapter);
+        String s=getIntent().getStringExtra("dificulty");
+
+            getSupportActionBar().setTitle(s);
+            level_adapter level_adapter= new level_adapter(no_time_limit_activity.this,levels);
+            LinearLayoutManager manager= new LinearLayoutManager(no_time_limit_activity.this);
+            manager.setOrientation(RecyclerView.VERTICAL);
+            recyclerView.setLayoutManager(manager);
+            recyclerView.setAdapter(level_adapter);
+
+
+
 
     }
     public void fill_level(){
