@@ -20,13 +20,11 @@ ArrayList<String> levels= new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_time_limit);
         fill_level();
-
+        String s=getIntent().getStringExtra("dificulty");
+        getSupportActionBar().setTitle(s);
 
         recyclerView=findViewById(R.id.recycler);
-        String s=getIntent().getStringExtra("dificulty");
-
-            getSupportActionBar().setTitle(s);
-            level_adapter level_adapter= new level_adapter(no_time_limit_activity.this,levels);
+            level_adapter level_adapter= new level_adapter(no_time_limit_activity.this,levels,s);
             LinearLayoutManager manager= new LinearLayoutManager(no_time_limit_activity.this);
             manager.setOrientation(RecyclerView.VERTICAL);
             recyclerView.setLayoutManager(manager);

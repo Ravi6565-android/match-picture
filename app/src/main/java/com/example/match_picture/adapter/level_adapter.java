@@ -17,10 +17,12 @@ import java.util.ArrayList;
 public class level_adapter extends RecyclerView.Adapter<level_adapter.view_holder> {
     Context context;
     ArrayList<String> levels;
+    String s;
 
-    public level_adapter(Context context, ArrayList<String> levels) {
+    public level_adapter(Context context, ArrayList<String> levels, String s) {
         this.context=context;
         this.levels=levels;
+        this.s=s;
     }
 
     @NonNull
@@ -31,6 +33,7 @@ public class level_adapter extends RecyclerView.Adapter<level_adapter.view_holde
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, puzzel_play_activity.class);
+               intent.putExtra("dificut",s);
                 context.startActivity(intent);
 
             }

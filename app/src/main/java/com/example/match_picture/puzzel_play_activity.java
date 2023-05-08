@@ -1,7 +1,9 @@
 package com.example.match_picture;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.GridView;
 
@@ -27,7 +29,20 @@ List<String> imglist = new ArrayList<>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzel_play);
+        String s=getIntent().getStringExtra("dificut");
+        getSupportActionBar().setTitle(s);
+
         gridView=findViewById(R.id.gridview);
+        AlertDialog.Builder builder=new AlertDialog.Builder(puzzel_play_activity.this);
+        builder.setTitle("TIME:"+s);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+
 
 
 
