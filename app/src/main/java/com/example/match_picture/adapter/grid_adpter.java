@@ -1,6 +1,9 @@
 package com.example.match_picture.adapter;
 
+import static com.example.match_picture.MainActivity.editor;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -26,10 +29,15 @@ public class grid_adpter extends BaseAdapter {
     View frist;
 
     Runnable runnable;
+    private int counter=0;
+
+    private int levelNo=1;
+
     public grid_adpter(Context context, List<String> imgArr)
     {
         this.context=context;
         this.imgArr=imgArr;
+
     }
 
     @Override
@@ -54,6 +62,7 @@ public class grid_adpter extends BaseAdapter {
         RelativeLayout layout=convertView.findViewById(R.id.relative);
         View view=convertView.findViewById(R.id.image_item_view);
         imageView=convertView.findViewById(R.id.image_item);
+
         Handler handler=new Handler();
         int time=5000;
         runnable=new Runnable() {
@@ -94,6 +103,13 @@ public class grid_adpter extends BaseAdapter {
 
                     if (imgArr.get(click1).equals(imgArr.get(click2)))
                     {
+                        counter++;
+                        if(counter==6)
+                        {
+                            editor.putInt("levelNo",levelNo);
+                            editor.commit();
+                            System.out.println("LevelWin");
+                        }
                         runnable=new Runnable() {
                             @Override
                             public void run() {
