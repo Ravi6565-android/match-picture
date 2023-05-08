@@ -1,6 +1,7 @@
 package com.example.match_picture.adapter;
 
 import static com.example.match_picture.MainActivity.editor;
+import static com.example.match_picture.MainActivity.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -31,7 +32,6 @@ public class grid_adpter extends BaseAdapter {
     Runnable runnable;
     private int counter=0;
 
-    private int levelNo=1;
 
     public grid_adpter(Context context, List<String> imgArr)
     {
@@ -106,7 +106,9 @@ public class grid_adpter extends BaseAdapter {
                         counter++;
                         if(counter==6)
                         {
-                            editor.putInt("levelNo",levelNo);
+                            int levelNo;
+                            levelNo=preferences.getInt("levelNo",0);
+                            editor.putString("levelwin","win");
                             editor.commit();
                             System.out.println("LevelWin");
                         }
